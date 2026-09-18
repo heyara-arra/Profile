@@ -2,11 +2,10 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Arra Tarroquin Arcilla | Student Portfolio</title>
+    <title>Arra Tarroquin Arcilla | Portfolio</title>
 
     <style>
 
@@ -18,48 +17,101 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #fff7fa;
+            background: #fffafc;
             color: #4a3a40;
             line-height: 1.6;
         }
 
+
         /* HEADER */
 
         header {
-            background: linear-gradient(135deg, #f8c8d8, #fde8ef);
-            text-align: center;
-            padding: 70px 20px;
-        }
-
-        .profile-circle {
-            width: 135px;
-            height: 135px;
-            margin: 0 auto 20px;
-            border-radius: 50%;
-            background: #f3aec5;
+            min-height: 520px;
+            background: linear-gradient(135deg, #fff1f6, #f8d5e2);
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 55px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.10);
-        }
-        .profile-circle img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
+            padding: 70px 10%;
         }
 
-        header h1 {
+        .hero {
+            width: 100%;
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text .small-title {
+            color: #a34f70;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .hero-text h1 {
+            font-size: 52px;
+            line-height: 1.15;
             margin: 0;
-            font-size: 42px;
             color: #633d4d;
         }
 
-        header p {
+        .hero-text h1 span {
+            color: #a34f70;
+        }
+
+        .hero-text p {
             font-size: 18px;
+            color: #725360;
+            max-width: 550px;
+            margin: 20px 0;
+        }
+
+        .hero-info {
+            color: #8f4561;
+            font-weight: bold;
+        }
+
+        .hero-button {
+            display: inline-block;
             margin-top: 10px;
-            color: #805568;
+            padding: 12px 22px;
+            background: #a34f70;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .hero-button:hover {
+            background: #633d4d;
+        }
+
+
+        /* PROFILE PHOTO */
+
+        .photo-container {
+            flex-shrink: 0;
+            width: 270px;
+            height: 320px;
+            border-radius: 35px;
+            background: #f3aec5;
+            padding: 10px;
+            box-shadow: 0 12px 30px rgba(100, 50, 70, 0.15);
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 28px;
+            display: block;
         }
 
 
@@ -72,7 +124,7 @@
             position: sticky;
             top: 0;
             z-index: 10;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
         }
 
         nav a {
@@ -91,17 +143,17 @@
         /* MAIN */
 
         main {
-            max-width: 900px;
+            max-width: 950px;
             margin: auto;
-            padding: 20px;
+            padding: 25px;
         }
 
         section {
             background: white;
             margin: 30px 0;
             padding: 35px;
-            border-radius: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+            border-radius: 22px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
         }
 
         h2 {
@@ -194,7 +246,7 @@
         }
 
 
-        /* TRAINING AND CERTIFICATES */
+        /* CERTIFICATES */
 
         .certificate {
             background: #fff4f7;
@@ -217,13 +269,6 @@
         .certificate .date {
             color: #a34f70;
             font-weight: bold;
-        }
-
-
-        /* HOBBIES */
-
-        .hobby-text {
-            margin-bottom: 18px;
         }
 
 
@@ -251,10 +296,6 @@
             margin-bottom: 10px;
         }
 
-        .contact-item:last-child {
-            margin-bottom: 0;
-        }
-
         .contact-item strong {
             color: #9b4b68;
         }
@@ -270,7 +311,7 @@
 
         footer {
             text-align: center;
-            background: #f8c8d8;
+            background: #f8d5e2;
             padding: 25px 15px;
             margin-top: 40px;
             color: #633d4d;
@@ -279,18 +320,30 @@
 
         /* MOBILE */
 
-        @media (max-width: 600px) {
+        @media (max-width: 700px) {
 
             header {
-                padding: 55px 15px;
+                min-height: auto;
+                padding: 55px 20px;
             }
 
-            header h1 {
-                font-size: 30px;
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 30px;
             }
 
-            header p {
+            .hero-text h1 {
+                font-size: 38px;
+            }
+
+            .hero-text p {
                 font-size: 16px;
+            }
+
+            .photo-container {
+                width: 210px;
+                height: 250px;
             }
 
             nav {
@@ -315,12 +368,6 @@
                 grid-template-columns: 1fr;
             }
 
-            .profile-circle {
-                width: 110px;
-                height: 110px;
-                font-size: 45px;
-            }
-
         }
 
     </style>
@@ -331,19 +378,52 @@
 <body>
 
 
-    <!-- HEADER -->
+    <!-- HERO -->
 
     <header>
 
-        <div class="profile-circle">
-    <img src="Profile.png" alt="Arra Tarroquin Arcilla">
+        <div class="hero">
+
+
+            <div class="hero-text">
+
+                <div class="small-title">
+                    Student Portfolio
+                </div>
+
+                <h1>
+                    Hi, I'm <span>Arra</span>
+                </h1>
+
+                <h1>
+                    Tarroquin Arcilla
+                </h1>
+
+                <p>
+                    A 19-year-old second-year Bachelor of Science
+                    in Computer Science student at Catanduanes
+                    State University.
+                </p>
+
+                <p class="hero-info">
+                    Technology • Creativity • Learning
+                </p>
+
+                <a href="#about" class="hero-button">
+                    Explore My Portfolio
+                </a>
+
+            </div>
+
+
+            <div class="photo-container">
+
+                <img src="profile.png" alt="Arra Tarroquin Arcilla">
+
+            </div>
+
+
         </div>
-
-        <h1>Arra Tarroquin Arcilla</h1>
-
-        <p>
-            2nd Year BS Computer Science Student
-        </p>
 
     </header>
 
@@ -375,9 +455,9 @@
 
             <p class="intro">
                 Hello! My name is Arra Tarroquin Arcilla.
-                I am a second-year Bachelor of Science in
-                Computer Science student at Catanduanes State
-                University.
+                I am a 19-year-old second-year Bachelor of
+                Science in Computer Science student at
+                Catanduanes State University.
             </p>
 
             <p>
@@ -406,6 +486,12 @@
                 </div>
 
                 <div class="info-card">
+                    <strong>Age</strong>
+                    <br>
+                    19 years old
+                </div>
+
+                <div class="info-card">
                     <strong>Course</strong>
                     <br>
                     Bachelor of Science in Computer Science
@@ -429,12 +515,6 @@
                     College of Information and Communications Technology
                 </div>
 
-                <div class="info-card">
-                    <strong>Interests</strong>
-                    <br>
-                    Technology, Creativity, Plants & Animals
-                </div>
-
             </div>
 
         </section>
@@ -456,13 +536,14 @@
                 </p>
 
                 <p>
-                    <strong>2025 — Present</strong>
+                    <strong>2nd Year — Present</strong>
                 </p>
 
                 <p>
-                    Currently studying computer science with
-                    a focus on programming, web development,
-                    data structures, and other areas of computing.
+                    Currently studying computer science and
+                    developing skills in programming, web
+                    development, data structures, and other
+                    areas of computing.
                 </p>
 
             </div>
@@ -505,10 +586,9 @@
 
             <div class="skills">
 
-                <span class="skill">C++ Programming</span>
+                <span class="skill">C Programming</span>
                 <span class="skill">HTML</span>
                 <span class="skill">CSS</span>
-                <span class="skill">Java Programing</span>
                 <span class="skill">Canva</span>
                 <span class="skill">Photoshop</span>
                 <span class="skill">GitHub</span>
@@ -526,19 +606,17 @@
 
             <h2>Projects</h2>
 
-
             <div class="project">
 
                 <h3>Personal Profile Website</h3>
 
                 <p>
                     A personal profile website created using
-                    HTML and CSS to practice basic web development
-                    and website design.
+                    HTML and CSS to practice basic web
+                    development and website design.
                 </p>
 
             </div>
-
 
         </section>
 
@@ -564,7 +642,7 @@
                 </p>
 
                 <p>
-                    8-hours training — Department of Information
+                    8-hour training — Department of Information
                     and Communications Technology (DICT)
                 </p>
 
@@ -589,7 +667,7 @@
                 </p>
 
                 <p>
-                    16-hours training — Department of Information
+                    16-hour training — Department of Information
                     and Communications Technology (DICT)
                 </p>
 
@@ -637,7 +715,7 @@
                 </p>
 
                 <p>
-                    8-hours training — Department of Information
+                    8-hour training — Department of Information
                     and Communications Technology (DICT)
                 </p>
 
@@ -656,7 +734,7 @@
 
             <h2>Hobbies & Interests</h2>
 
-            <p class="hobby-text">
+            <p>
                 Outside academics, I enjoy activities that
                 allow me to be creative, relaxed, and curious.
             </p>
@@ -664,8 +742,838 @@
             <div class="skills">
 
                 <span class="skill">Drawing</span>
-                <span class="skill">Playing piano</span>
-                <span class="skill">Planting</span>
+                <span class="skill">Plants</span>
+                <span class="skill">Animals</span>
+                <span class="skill">Exploring Technology</span>
+                <span class="skill">Creativity</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- GOALS -->
+
+        <section id="goals">
+
+            <h2>My Goals</h2>
+
+
+            <div class="goal-box">
+
+                <h3>Short-Term Goal</h3>
+
+                <p>
+                    To improve my programming skills, strengthen
+                    my understanding of computer science, and
+                    become more confident in creating useful
+                    programs and websites.
+                </p>
+
+            </div>
+
+
+            <div class="goal-box">
+
+                <h3>Long-Term Goal</h3>
+
+                <p>
+                    To build a successful career in the technology
+                    field and continue learning new skills and
+                    technologies.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTACT -->
+
+        <section id="contact">
+
+            <h2>Contact</h2>
+
+            <div class="contact-item">
+
+                <strong>GitHub</strong>
+
+                <br>
+
+                <a href="https://github.com/heyara-arra">
+                    github.com/heyara-arra
+                </a>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 Arra Tarroquin Arcilla
+        </p>
+
+        <p>
+            Student Portfolio
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html><!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Arra Tarroquin Arcilla | Portfolio</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fffafc;
+            color: #4a3a40;
+            line-height: 1.6;
+        }
+
+
+        /* HEADER */
+
+        header {
+            min-height: 520px;
+            background: linear-gradient(135deg, #fff1f6, #f8d5e2);
+            display: flex;
+            align-items: center;
+            padding: 70px 10%;
+        }
+
+        .hero {
+            width: 100%;
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text .small-title {
+            color: #a34f70;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .hero-text h1 {
+            font-size: 52px;
+            line-height: 1.15;
+            margin: 0;
+            color: #633d4d;
+        }
+
+        .hero-text h1 span {
+            color: #a34f70;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: #725360;
+            max-width: 550px;
+            margin: 20px 0;
+        }
+
+        .hero-info {
+            color: #8f4561;
+            font-weight: bold;
+        }
+
+        .hero-button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 12px 22px;
+            background: #a34f70;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .hero-button:hover {
+            background: #633d4d;
+        }
+
+
+        /* PROFILE PHOTO */
+
+        .photo-container {
+            flex-shrink: 0;
+            width: 270px;
+            height: 320px;
+            border-radius: 35px;
+            background: #f3aec5;
+            padding: 10px;
+            box-shadow: 0 12px 30px rgba(100, 50, 70, 0.15);
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 28px;
+            display: block;
+        }
+
+
+        /* NAVIGATION */
+
+        nav {
+            background: white;
+            padding: 15px 10px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+        }
+
+        nav a {
+            display: inline-block;
+            color: #a34f70;
+            text-decoration: none;
+            margin: 5px 9px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #633d4d;
+        }
+
+
+        /* MAIN */
+
+        main {
+            max-width: 950px;
+            margin: auto;
+            padding: 25px;
+        }
+
+        section {
+            background: white;
+            margin: 30px 0;
+            padding: 35px;
+            border-radius: 22px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+        }
+
+        h2 {
+            color: #a34f70;
+            margin-top: 0;
+            border-bottom: 2px solid #f4d5df;
+            padding-bottom: 8px;
+        }
+
+
+        /* ABOUT */
+
+        .intro {
+            font-size: 17px;
+        }
+
+
+        /* PERSONAL INFORMATION */
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .info-card {
+            background: #fff1f5;
+            padding: 18px;
+            border-radius: 15px;
+        }
+
+        .info-card strong {
+            color: #9b4b68;
+        }
+
+
+        /* EDUCATION */
+
+        .education-item {
+            background: #fff4f7;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .education-item h3 {
+            margin-top: 0;
+            color: #87465e;
+        }
+
+
+        /* SKILLS */
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill {
+            background: #ffe0ea;
+            color: #8f4561;
+            padding: 9px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+
+        /* PROJECTS */
+
+        .project {
+            background: #fff4f7;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            border-left: 5px solid #e9a9be;
+        }
+
+        .project:last-child {
+            margin-bottom: 0;
+        }
+
+        .project h3 {
+            margin-top: 0;
+            color: #87465e;
+        }
+
+
+        /* CERTIFICATES */
+
+        .certificate {
+            background: #fff4f7;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            border-left: 5px solid #e9a9be;
+        }
+
+        .certificate:last-child {
+            margin-bottom: 0;
+        }
+
+        .certificate h3 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: #87465e;
+        }
+
+        .certificate .date {
+            color: #a34f70;
+            font-weight: bold;
+        }
+
+
+        /* GOALS */
+
+        .goal-box {
+            background: #fff1f5;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 15px;
+        }
+
+        .goal-box h3 {
+            color: #87465e;
+            margin-top: 0;
+        }
+
+
+        /* CONTACT */
+
+        .contact-item {
+            background: #fff4f7;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+
+        .contact-item strong {
+            color: #9b4b68;
+        }
+
+        .contact-item a {
+            color: #a34f70;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            background: #f8d5e2;
+            padding: 25px 15px;
+            margin-top: 40px;
+            color: #633d4d;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            header {
+                min-height: auto;
+                padding: 55px 20px;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .hero-text h1 {
+                font-size: 38px;
+            }
+
+            .hero-text p {
+                font-size: 16px;
+            }
+
+            .photo-container {
+                width: 210px;
+                height: 250px;
+            }
+
+            nav {
+                padding: 10px 5px;
+            }
+
+            nav a {
+                margin: 4px 5px;
+                font-size: 13px;
+            }
+
+            main {
+                padding: 10px;
+            }
+
+            section {
+                padding: 25px 20px;
+                margin: 20px 0;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- HERO -->
+
+    <header>
+
+        <div class="hero">
+
+
+            <div class="hero-text">
+
+                <div class="small-title">
+                    Student Portfolio
+                </div>
+
+                <h1>
+                    Hi, I'm <span>Arra</span>
+                </h1>
+
+                <h1>
+                    Tarroquin Arcilla
+                </h1>
+
+                <p>
+                    A 19-year-old second-year Bachelor of Science
+                    in Computer Science student at Catanduanes
+                    State University.
+                </p>
+
+                <p class="hero-info">
+                    Technology • Creativity • Learning
+                </p>
+
+                <a href="#about" class="hero-button">
+                    Explore My Portfolio
+                </a>
+
+            </div>
+
+
+            <div class="photo-container">
+
+                <img src="profile.png" alt="Arra Tarroquin Arcilla">
+
+            </div>
+
+
+        </div>
+
+    </header>
+
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#hobbies">Hobbies</a>
+        <a href="#goals">Goals</a>
+        <a href="#contact">Contact</a>
+
+    </nav>
+
+
+    <main>
+
+
+        <!-- ABOUT -->
+
+        <section id="about">
+
+            <h2>About Me</h2>
+
+            <p class="intro">
+                Hello! My name is Arra Tarroquin Arcilla.
+                I am a 19-year-old second-year Bachelor of
+                Science in Computer Science student at
+                Catanduanes State University.
+            </p>
+
+            <p>
+                I am interested in technology, creativity,
+                and learning new skills. I enjoy exploring
+                different areas of computing and improving
+                my skills through school activities, training,
+                and personal projects.
+            </p>
+
+        </section>
+
+
+        <!-- PERSONAL INFORMATION -->
+
+        <section>
+
+            <h2>Personal Information</h2>
+
+            <div class="info-grid">
+
+                <div class="info-card">
+                    <strong>Full Name</strong>
+                    <br>
+                    Arra Tarroquin Arcilla
+                </div>
+
+                <div class="info-card">
+                    <strong>Age</strong>
+                    <br>
+                    19 years old
+                </div>
+
+                <div class="info-card">
+                    <strong>Course</strong>
+                    <br>
+                    Bachelor of Science in Computer Science
+                </div>
+
+                <div class="info-card">
+                    <strong>Year Level</strong>
+                    <br>
+                    2nd Year
+                </div>
+
+                <div class="info-card">
+                    <strong>School</strong>
+                    <br>
+                    Catanduanes State University
+                </div>
+
+                <div class="info-card">
+                    <strong>College</strong>
+                    <br>
+                    College of Information and Communications Technology
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- EDUCATION -->
+
+        <section id="education">
+
+            <h2>Education</h2>
+
+
+            <div class="education-item">
+
+                <h3>Catanduanes State University</h3>
+
+                <p>
+                    Bachelor of Science in Computer Science
+                </p>
+
+                <p>
+                    <strong>2nd Year — Present</strong>
+                </p>
+
+                <p>
+                    Currently studying computer science and
+                    developing skills in programming, web
+                    development, data structures, and other
+                    areas of computing.
+                </p>
+
+            </div>
+
+
+            <div class="education-item">
+
+                <h3>Buyo Integrated School</h3>
+
+                <p>
+                    Senior High School — TVL-CSS
+                </p>
+
+                <p>
+                    <strong>Senior High School Graduate</strong>
+                </p>
+
+                <p>
+                    Completed the Computer Systems Servicing
+                    track and developed basic skills in
+                    computer hardware, software, and
+                    troubleshooting.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- SKILLS -->
+
+        <section id="skills">
+
+            <h2>Skills</h2>
+
+            <p>
+                Some of the skills I have learned and continue
+                to improve include:
+            </p>
+
+            <div class="skills">
+
+                <span class="skill">C Programming</span>
+                <span class="skill">HTML</span>
+                <span class="skill">CSS</span>
+                <span class="skill">Canva</span>
+                <span class="skill">Photoshop</span>
+                <span class="skill">GitHub</span>
+                <span class="skill">Basic Computer Skills</span>
+                <span class="skill">Computer Troubleshooting</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROJECTS -->
+
+        <section id="projects">
+
+            <h2>Projects</h2>
+
+            <div class="project">
+
+                <h3>Personal Profile Website</h3>
+
+                <p>
+                    A personal profile website created using
+                    HTML and CSS to practice basic web
+                    development and website design.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- TRAINING AND CERTIFICATES -->
+
+        <section id="certificates">
+
+            <h2>Training & Certificates</h2>
+
+
+            <!-- 1 -->
+
+            <div class="certificate">
+
+                <h3>Certificate of Completion</h3>
+
+                <p>
+                    <strong>
+                        Unlocking Your Creativity:
+                        Introduction to Photoshop
+                    </strong>
+                </p>
+
+                <p>
+                    8-hour training — Department of Information
+                    and Communications Technology (DICT)
+                </p>
+
+                <p class="date">
+                    October 2024
+                </p>
+
+            </div>
+
+
+            <!-- 2 -->
+
+            <div class="certificate">
+
+                <h3>Certificate of Participation</h3>
+
+                <p>
+                    <strong>
+                        Godot Development 101:
+                        The Fundamentals
+                    </strong>
+                </p>
+
+                <p>
+                    16-hour training — Department of Information
+                    and Communications Technology (DICT)
+                </p>
+
+                <p class="date">
+                    January 2025
+                </p>
+
+            </div>
+
+
+            <!-- 3 -->
+
+            <div class="certificate">
+
+                <h3>Qualification</h3>
+
+                <p>
+                    <strong>
+                        Computer Systems Servicing NC II
+                    </strong>
+                </p>
+
+                <p>
+                    CPIC
+                </p>
+
+                <p class="date">
+                    April 2025
+                </p>
+
+            </div>
+
+
+            <!-- 4 -->
+
+            <div class="certificate">
+
+                <h3>Certificate of Completion</h3>
+
+                <p>
+                    <strong>
+                        Level Up Your Design Skills:
+                        Canva Training for Beginners
+                    </strong>
+                </p>
+
+                <p>
+                    8-hour training — Department of Information
+                    and Communications Technology (DICT)
+                </p>
+
+                <p class="date">
+                    January 2025
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- HOBBIES -->
+
+        <section id="hobbies">
+
+            <h2>Hobbies & Interests</h2>
+
+            <p>
+                Outside academics, I enjoy activities that
+                allow me to be creative, relaxed, and curious.
+            </p>
+
+            <div class="skills">
+
+                <span class="skill">Drawing</span>
+                <span class="skill">Plants</span>
                 <span class="skill">Animals</span>
                 <span class="skill">Exploring Technology</span>
                 <span class="skill">Creativity</span>
