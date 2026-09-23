@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arra Tarroquin Arcilla | Student Portfolio</title>
+
+    <title>Arra Tarroquin Arcilla | Portfolio</title>
 
     <style>
         * {
@@ -13,75 +14,115 @@
             scroll-behavior: smooth;
         }
 
+        :root {
+            --pink: #ff6fae;
+            --dark-pink: #d94f8c;
+            --light-pink: #ffd8e8;
+            --soft-pink: #fff1f7;
+            --dark: #211923;
+            --text: #5e4d59;
+            --white: #ffffff;
+            --border: rgba(255, 111, 174, 0.18);
+        }
+
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #fff8fb;
-            color: #3f3540;
+            background:
+                radial-gradient(circle at 10% 10%, rgba(255,111,174,0.10), transparent 25%),
+                radial-gradient(circle at 90% 30%, rgba(217,79,140,0.08), transparent 25%),
+                #fff9fc;
+            color: var(--text);
             line-height: 1.7;
         }
 
         /* NAVIGATION */
+
         nav {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(255, 248, 251, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #f1dce6;
+            background: rgba(33, 25, 35, 0.94);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
         .nav-container {
-            max-width: 1100px;
+            max-width: 1150px;
             margin: auto;
-            padding: 16px 25px;
+            padding: 15px 25px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-        }
-
-        .logo {
-            font-size: 22px;
-            font-weight: bold;
-            color: #b65d83;
         }
 
         nav ul {
             list-style: none;
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 22px;
         }
 
         nav a {
             text-decoration: none;
-            color: #594752;
-            font-size: 14px;
+            color: #f9dce9;
+            font-size: 13px;
+            font-weight: bold;
             transition: 0.3s;
         }
 
         nav a:hover {
-            color: #b65d83;
+            color: var(--pink);
         }
 
         /* HERO */
+
         .hero {
-            max-width: 1100px;
+            min-height: 700px;
+            max-width: 1150px;
             margin: auto;
-            min-height: 650px;
-            padding: 70px 25px;
+            padding: 80px 30px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 70px;
+            gap: 75px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: "✦";
+            position: absolute;
+            top: 100px;
+            right: 8%;
+            color: var(--pink);
+            font-size: 55px;
+            opacity: 0.45;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: "♡";
+            position: absolute;
+            bottom: 100px;
+            left: 7%;
+            color: var(--pink);
+            font-size: 45px;
+            opacity: 0.35;
+            animation: float 5s ease-in-out infinite;
         }
 
         .hero-photo {
-            width: 340px;
-            height: 430px;
+            width: 350px;
+            height: 450px;
+            padding: 8px;
             flex-shrink: 0;
             border-radius: 35px;
-            overflow: hidden;
-            background: #f4dce6;
-            box-shadow: 0 20px 50px rgba(150, 80, 110, 0.18);
+            background: linear-gradient(145deg, #ff6fae, #a83f70);
+            box-shadow:
+                0 0 35px rgba(255,111,174,0.25),
+                0 25px 60px rgba(80,30,55,0.18);
+            transform: rotate(-2deg);
+            animation: photoFloat 5s ease-in-out infinite;
         }
 
         .hero-photo img {
@@ -89,163 +130,316 @@
             height: 100%;
             object-fit: cover;
             display: block;
+            border-radius: 29px;
         }
 
         .hero-text {
-            max-width: 520px;
+            max-width: 560px;
         }
 
-        .hero-text .small-title {
-            color: #b65d83;
-            font-size: 15px;
+        .small-title {
+            display: inline-block;
+            color: var(--pink);
+            background: rgba(255,111,174,0.10);
+            border: 1px solid rgba(255,111,174,0.25);
+            padding: 7px 15px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: bold;
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 12px;
+            margin-bottom: 20px;
         }
 
         .hero-text h1 {
-            font-size: 55px;
-            line-height: 1.1;
-            color: #382c34;
+            font-size: clamp(42px, 6vw, 68px);
+            line-height: 1.05;
+            color: var(--dark);
             margin-bottom: 20px;
+        }
+
+        .hero-text h1 span {
+            color: var(--pink);
         }
 
         .hero-text p {
             font-size: 18px;
             color: #75636d;
+            max-width: 500px;
         }
 
-        /* GENERAL SECTIONS */
+        .hero-line {
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--pink), #ffc0d9);
+            border-radius: 10px;
+            margin-top: 28px;
+        }
+
+        /* SECTIONS */
+
         section {
             max-width: 1100px;
             margin: auto;
-            padding: 80px 25px;
+            padding: 90px 25px;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 45px;
+            margin-bottom: 50px;
+        }
+
+        .section-title .number {
+            color: var(--pink);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 3px;
         }
 
         .section-title h2 {
-            font-size: 34px;
-            color: #493640;
-            margin-bottom: 8px;
+            font-size: 38px;
+            color: var(--dark);
+            margin: 5px 0 8px;
         }
 
         .section-title p {
             color: #947e88;
         }
 
+        /* GENERAL CARD */
+
+        .glass-card {
+            background: rgba(255,255,255,0.82);
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            box-shadow: 0 15px 45px rgba(100,40,70,0.08);
+            backdrop-filter: blur(10px);
+        }
+
         /* ABOUT */
+
         .about-box {
-            max-width: 850px;
+            max-width: 900px;
             margin: auto;
-            background: white;
-            padding: 40px;
-            border-radius: 25px;
-            box-shadow: 0 10px 35px rgba(150, 80, 110, 0.08);
+            padding: 42px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-box::before {
+            content: "ABOUT";
+            position: absolute;
+            right: -10px;
+            top: 15px;
+            font-size: 65px;
+            font-weight: bold;
+            color: rgba(255,111,174,0.045);
         }
 
         .about-box p {
             font-size: 17px;
             color: #675761;
+            position: relative;
+            z-index: 1;
         }
 
-        /* PERSONAL INFORMATION */
+        /* PERSONAL INFO */
+
         .info-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 18px;
-            max-width: 850px;
+            max-width: 900px;
             margin: auto;
         }
 
         .info-card {
-            background: white;
             padding: 25px;
-            border-radius: 20px;
-            border: 1px solid #f2dfe7;
+            border-radius: 22px;
+            background: white;
+            border: 1px solid var(--border);
+            transition: 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(217,79,140,0.12);
+            border-color: rgba(255,111,174,0.4);
         }
 
         .info-card span {
             display: block;
-            color: #b65d83;
-            font-size: 13px;
+            color: var(--pink);
+            font-size: 11px;
             font-weight: bold;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             margin-bottom: 5px;
         }
 
         .info-card strong {
-            font-size: 17px;
             color: #4c3c45;
+            font-size: 16px;
         }
 
         /* EDUCATION */
+
         .timeline {
-            max-width: 850px;
+            max-width: 900px;
             margin: auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(var(--pink), #f5c5d9);
         }
 
         .timeline-item {
+            margin-left: 45px;
+            margin-bottom: 25px;
+            padding: 30px;
+            position: relative;
             background: white;
-            padding: 28px;
-            margin-bottom: 18px;
-            border-left: 5px solid #d58aa8;
-            border-radius: 0 20px 20px 0;
-            box-shadow: 0 8px 25px rgba(150, 80, 110, 0.06);
+            border: 1px solid var(--border);
+            border-radius: 0 25px 25px 25px;
+            transition: 0.3s;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -38px;
+            top: 30px;
+            width: 15px;
+            height: 15px;
+            background: var(--pink);
+            border: 4px solid #fff1f7;
+            border-radius: 50%;
+            box-shadow: 0 0 0 2px var(--pink);
+        }
+
+        .timeline-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 15px 35px rgba(150,80,110,0.10);
         }
 
         .timeline-item h3 {
-            color: #4c3c45;
-            margin-bottom: 5px;
+            color: #40313a;
+            margin-bottom: 7px;
         }
 
         .timeline-item p {
             color: #77656f;
         }
 
+        .timeline-item .year {
+            display: inline-block;
+            color: var(--dark-pink);
+            background: #ffe7f0;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
         /* SKILLS */
+
         .skills {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 14px;
-            max-width: 850px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            max-width: 950px;
             margin: auto;
         }
 
         .skill {
-            background: white;
-            color: #8f4968;
-            border: 1px solid #efd5e0;
-            padding: 12px 20px;
-            border-radius: 50px;
+            background: #241b25;
+            color: white;
+            padding: 25px 18px;
+            border-radius: 22px;
+            text-align: center;
+            border: 1px solid rgba(255,111,174,0.18);
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-7px);
+            border-color: var(--pink);
+            box-shadow: 0 10px 30px rgba(217,79,140,0.18);
+        }
+
+        .skill-icon {
+            font-size: 25px;
+            color: var(--pink);
+            margin-bottom: 8px;
+        }
+
+        .skill-name {
+            display: block;
             font-weight: bold;
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .skill-level {
+            font-size: 11px;
+            color: #dcbac9;
         }
 
         /* PROJECT */
+
         .project-card {
-            max-width: 850px;
+            max-width: 900px;
             margin: auto;
-            background: white;
-            padding: 35px;
-            border-radius: 25px;
-            box-shadow: 0 10px 35px rgba(150, 80, 110, 0.08);
+            padding: 40px;
+            background: linear-gradient(135deg, #241b25, #38232f);
+            color: white;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(45,20,35,0.16);
+        }
+
+        .project-card::after {
+            content: "</>";
+            position: absolute;
+            right: 25px;
+            bottom: -20px;
+            font-size: 100px;
+            font-weight: bold;
+            color: rgba(255,111,174,0.08);
+        }
+
+        .project-tag {
+            display: inline-block;
+            background: rgba(255,111,174,0.15);
+            color: #ff9bc4;
+            border: 1px solid rgba(255,111,174,0.3);
+            padding: 6px 13px;
+            border-radius: 50px;
+            font-size: 11px;
+            margin-bottom: 15px;
         }
 
         .project-card h3 {
-            color: #4c3c45;
-            margin-bottom: 10px;
-            font-size: 23px;
+            font-size: 27px;
+            margin-bottom: 12px;
         }
 
         .project-card p {
-            color: #77656f;
+            color: #e2cbd6;
+            max-width: 700px;
         }
 
         /* TRAINING */
+
         .training-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -254,28 +448,48 @@
 
         .training-card {
             background: white;
-            padding: 28px;
-            border-radius: 22px;
-            border: 1px solid #f0dce5;
+            padding: 30px;
+            border-radius: 25px;
+            border: 1px solid var(--border);
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .training-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(150,80,110,0.10);
+        }
+
+        .certificate-badge {
+            display: inline-block;
+            background: #ffe4ef;
+            color: var(--dark-pink);
+            padding: 5px 11px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: bold;
+            margin-bottom: 12px;
         }
 
         .training-card h3 {
             font-size: 18px;
-            color: #4c3c45;
-            margin-bottom: 10px;
+            color: #44353e;
+            margin-bottom: 12px;
+            line-height: 1.4;
         }
 
         .training-card p {
             color: #786670;
-            font-size: 15px;
+            font-size: 14px;
         }
 
-        .training-card .organization {
-            color: #b65d83;
+        .organization {
+            color: var(--pink);
             font-weight: bold;
         }
 
         /* HOBBIES */
+
         .hobbies {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -284,10 +498,21 @@
 
         .hobby {
             background: white;
-            padding: 30px 20px;
+            padding: 35px 25px;
             text-align: center;
-            border-radius: 22px;
-            border: 1px solid #f0dce5;
+            border-radius: 25px;
+            border: 1px solid var(--border);
+            transition: 0.3s;
+        }
+
+        .hobby:hover {
+            transform: translateY(-7px) rotate(1deg);
+            box-shadow: 0 15px 35px rgba(150,80,110,0.10);
+        }
+
+        .hobby-icon {
+            font-size: 35px;
+            margin-bottom: 12px;
         }
 
         .hobby h3 {
@@ -301,94 +526,221 @@
         }
 
         /* GOALS */
+
         .goal-box {
-            max-width: 850px;
+            max-width: 900px;
             margin: auto;
-            background: #f8e8ef;
-            padding: 40px;
-            border-radius: 25px;
+            padding: 45px;
+            border-radius: 30px;
             text-align: center;
+            background:
+                linear-gradient(135deg, #ffe5f0, #fff4f8);
+            border: 1px solid #f5c8da;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .goal-box::before {
+            content: "✦";
+            position: absolute;
+            font-size: 120px;
+            color: rgba(255,111,174,0.08);
+            right: 20px;
+            top: -35px;
         }
 
         .goal-box p {
             color: #624d58;
             font-size: 17px;
+            position: relative;
         }
 
         /* CONTACT */
+
         .contact-box {
             text-align: center;
+            padding: 45px;
         }
 
         .contact-box p {
             color: #75636d;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
-        .github-btn {
+        .btn {
             display: inline-block;
             text-decoration: none;
-            background: #b65d83;
-            color: white;
             padding: 13px 25px;
+            margin: 5px;
             border-radius: 50px;
+            font-weight: bold;
             transition: 0.3s;
         }
 
+        .github-btn {
+            background: #241b25;
+            color: white;
+        }
+
         .github-btn:hover {
-            background: #934866;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(36,27,37,0.2);
+        }
+
+        .instagram-btn {
+            background: linear-gradient(135deg, #ff7db2, #c94b82);
+            color: white;
+        }
+
+        .instagram-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(201,75,130,0.25);
         }
 
         /* FOOTER */
+
         footer {
             text-align: center;
-            padding: 30px;
-            background: #f5e5ec;
-            color: #786670;
-            font-size: 14px;
+            padding: 35px 20px;
+            background: #211923;
+            color: #cdb5c1;
+            font-size: 13px;
+        }
+
+        footer span {
+            color: var(--pink);
+        }
+
+        /* ANIMATIONS */
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        @keyframes photoFloat {
+            0%, 100% {
+                transform: rotate(-2deg) translateY(0);
+            }
+
+            50% {
+                transform: rotate(-2deg) translateY(-8px);
+            }
         }
 
         /* MOBILE */
-        @media (max-width: 800px) {
+
+        @media (max-width: 850px) {
 
             nav ul {
-                display: none;
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 11px;
             }
 
             .hero {
                 flex-direction: column;
                 text-align: center;
-                gap: 35px;
-                padding-top: 50px;
+                gap: 45px;
+                padding-top: 60px;
             }
 
             .hero-photo {
-                width: 280px;
-                height: 350px;
-            }
-
-            .hero-text h1 {
-                font-size: 42px;
+                width: 285px;
+                height: 365px;
             }
 
             .hero-text p {
                 font-size: 16px;
             }
 
-            .info-grid,
-            .training-grid,
+            .hero-line {
+                margin: 25px auto 0;
+            }
+
+            .skills {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .hobbies {
                 grid-template-columns: 1fr;
             }
 
+            .training-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            nav {
+                position: relative;
+            }
+
+            nav ul {
+                gap: 9px 13px;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 55px 20px 70px;
+            }
+
+            .hero-photo {
+                width: 250px;
+                height: 320px;
+            }
+
+            .hero-text h1 {
+                font-size: 43px;
+            }
+
             section {
-                padding: 60px 20px;
+                padding: 65px 18px;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
             }
 
             .about-box,
+            .goal-box,
             .project-card,
-            .goal-box {
-                padding: 28px;
+            .contact-box {
+                padding: 28px 22px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .skill {
+                padding: 20px 10px;
+            }
+
+            .timeline-item {
+                margin-left: 35px;
+                padding: 24px;
+            }
+
+            .timeline::before {
+                left: 10px;
+            }
+
+            .timeline-item::before {
+                left: -33px;
             }
         }
     </style>
@@ -399,10 +751,9 @@
     <!-- NAVIGATION -->
     <nav>
         <div class="nav-container">
-
             <ul>
                 <li><a href="#about">About</a></li>
-                <li><a href="#info">Information</a></li>
+                <li><a href="#info">Info</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -418,32 +769,43 @@
     <header class="hero">
 
         <div class="hero-photo">
-            <img src="Profile.png" alt="Profile photo of Arra Tarroquin Arcilla">
+            <img src="profile.png" alt="Profile photo of Arra Tarroquin Arcilla">
         </div>
 
         <div class="hero-text">
-            <div class="small-title">Student Portfolio</div>
 
-            <h1>Arra Tarroquin Arcilla</h1>
+            <div class="small-title">
+                ✦ Student Portfolio
+            </div>
+
+            <h1>
+                Arra<br>
+                <span>Tarroquin Arcilla</span>
+            </h1>
 
             <p>
                 A student portfolio showcasing my education,
                 skills, training, interests, and projects.
             </p>
+
+            <div class="hero-line"></div>
+
         </div>
 
     </header>
 
 
-    <!-- ABOUT ME -->
+    <!-- ABOUT -->
     <section id="about">
 
         <div class="section-title">
+            <div class="number">01</div>
             <h2>About Me</h2>
             <p>A little about my interests and personality</p>
         </div>
 
-        <div class="about-box">
+        <div class="about-box glass-card">
+
             <p>
                 I enjoy learning new things, exploring creative ideas,
                 and developing practical skills through hands-on activities.
@@ -460,6 +822,7 @@
                 I learn, and gaining experience through different activities
                 and projects.
             </p>
+
         </div>
 
     </section>
@@ -469,275 +832,12 @@
     <section id="info">
 
         <div class="section-title">
+            <div class="number">02</div>
             <h2>Personal Information</h2>
             <p>Basic information</p>
         </div>
 
         <div class="info-grid">
 
-            <div class="info-card">
-                <span>Age</span>
-                <strong>19 years old</strong>
-            </div>
-
-            <div class="info-card">
-                <span>Course</span>
-                <strong>Bachelor of Science in Computer Science</strong>
-            </div>
-
-            <div class="info-card">
-                <span>Year Level</span>
-                <strong>2nd Year</strong>
-            </div>
-
-            <div class="info-card">
-                <span>School</span>
-                <strong>Catanduanes State University</strong>
-            </div>
-
-            <div class="info-card">
-                <span>College</span>
-                <strong>College of Information and Communications Technology</strong>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- EDUCATION -->
-    <section id="education">
-
-        <div class="section-title">
-            <h2>Education</h2>
-            <p>My educational background</p>
-        </div>
-
-        <div class="timeline">
-
-            <div class="timeline-item">
-                <h3>Catanduanes State University</h3>
-                <p> 
-                    2025-Present <br>
-                    Bachelor of Science in Computer Science<br>
-                    Second Year
-                </p>
-            </div>
-
-            <div class="timeline-item">
-                <h3>Buyo Integrated School</h3>
-                <p>
-                    2023-2025<br>
-                    Senior High School<br>
-                    TVL – Computer Systems Servicing (CSS)
-                </p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- TECHNICAL SKILLS & KNOWLEDGE -->
-<section id="skills">
-
-    <div class="section-title">
-        <h2>Technical Skills & Knowledge</h2>
-        <p>Technologies and tools I am familiar with</p>
-    </div>
-
-    <div class="skills">
-
-        <div class="skill">Java — Currently Learning</div>
-        <div class="skill">C++ — Currently Learning</div>
-        <div class="skill">HTML — Basic</div>
-        <div class="skill">CSS — Basic</div>
-        <div class="skill">Canva — Comfortable Using</div>
-        <div class="skill">Photoshop — Basic</div>
-        <div class="skill">GitHub — Basic</div>
-        <div class="skill">Computer Troubleshooting — Basic</div>
-
-    </div>
-
-</section>
-
-
-    <!-- PROJECTS -->
-    <section id="projects">
-
-        <div class="section-title">
-            <h2>Projects</h2>
-            <p>Projects I have worked on</p>
-        </div>
-
-        <div class="project-card">
-
-            <h3>Personal Profile Website</h3>
-
-            <p>
-                A personal profile website created using HTML and CSS
-                and deployed through GitHub Pages. This website presents
-                my background, skills, education, training, interests,
-                and other information in a simple portfolio format.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- TRAINING AND CERTIFICATES -->
-    <section id="training">
-
-        <div class="section-title">
-            <h2>Training & Certificates</h2>
-            <p>Training and qualifications I have completed</p>
-        </div>
-
-        <div class="training-grid">
-
-            <div class="training-card">
-                <h3>Unlocking Your Creativity: Introduction to Photoshop</h3>
-                <p>
-                    <span class="organization">DICT</span><br>
-                    Certificate of Completion<br>
-                    8-hours training<br>
-                    October 2024
-                </p>
-            </div>
-
-            <div class="training-card">
-                <h3>Godot Development 101: The Fundamentals</h3>
-                <p>
-                    <span class="organization">DICT</span><br>
-                    Certificate of Participation<br>
-                    16-hours training<br>
-                    January 2025
-                </p>
-            </div>
-
-            <div class="training-card">
-                <h3>Level Up Your Design Skills: Canva Training for Beginners</h3>
-                <p>
-                    <span class="organization">DICT</span><br>
-                    Certificate of Completion<br>
-                    8-hours training<br>
-                    January 2025
-                </p>
-            </div>
-
-            <div class="training-card">
-                <h3>Computer Systems Servicing NC II</h3>
-                <p>
-                    <span class="organization">CPIC</span><br>
-                    NC II Qualification<br>
-                    April 2025
-                </p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- HOBBIES -->
-    <section id="hobbies">
-
-        <div class="section-title">
-            <h2>Hobbies & Interests</h2>
-            <p>Things I enjoy doing</p>
-        </div>
-
-        <div class="hobbies">
-
-            <div class="hobby">
-                <h3>Drawing</h3>
-                <p>
-                    I enjoy drawing as a creative way to express ideas
-                    and relax my mind.
-                </p>
-            </div>
-
-            <div class="hobby">
-                <h3>Plants & Animals</h3>
-                <p>
-                    I enjoy spending time with plants like watering them 
-                    and taking care of my Cats
-                </p>
-            </div>
-
-            <div class="hobby">
-                <h3>Technology</h3>
-                <p>
-                    I enjoy exploring technology and learning how
-                    different digital tools work.
-                </p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- GOALS -->
-    <section>
-
-        <div class="section-title">
-            <h2>My Goals</h2>
-            <p>What I want to achieve</p>
-        </div>
-
-        <div class="goal-box">
-
-            <p>
-            My goal is to learn different programming languages,
-            improve my programming skills, create websites, 
-            and deepen my knowledge of technology.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- CONTACT -->
-<section id="contact">
-
-    <div class="section-title">
-        <h2>Contact</h2>
-        <p>Connect with me online</p>
-    </div>
-
-    <div class="contact-box">
-
-        <p>
-            You can visit my profiles to see my projects
-            and connect with me online.
-        </p>
-
-        <!-- GitHub -->
-        <a
-            class="github-btn"
-            href="https://github.com/heyara-arra"
-            target="_blank">
-            Visit My GitHub
-        </a>
-
-        <!-- Instagram -->
-        <a
-            class="github-btn"
-            href="https://www.instagram.com/tiearra_ara?stkn=OTRwaXJvcndjaDM5"
-            target="_blank">
-            Visit My Instagram
-        </a>
-
-    </div>
-
-</section>
-    <!-- FOOTER -->
-    <footer>
-        © 2026 Student Portfolio
-    </footer>
-
-</body>
-    </html>
+            <div clas
+    
